@@ -7,7 +7,10 @@
 		"Image Processing"
 	],
 	"manufacturer": "Analog Way",
-	"product": "LivePremier",
+	"product": [
+		"LivePremier",
+		"Midra 4K"
+	],
 	"shortname": "livepremier",
 	"main": "livepremier.js",
 	"scripts": {
