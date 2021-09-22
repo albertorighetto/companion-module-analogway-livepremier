@@ -67,6 +67,14 @@ instance.prototype.config_fields = function () {
 			default: '192.168.2.140',
 			regex: self.REGEX_IP,
 			width: 6
+		},
+		{ // TODO: needs upgrade script to set default value on old instances
+			type: 'textinput',
+			id: 'port',
+			label: 'Port of LivePremier device (default: 80)',
+			default: '80',
+			regex: self.REGEX_PORT,
+			width: 6
 		}
 	]
 };
@@ -503,7 +511,7 @@ instance.prototype.action = function(action) {
 		}
 	}
 
-	self.system.emit('rest', 'http://'+ self.config.host + path, bodyjson, function (err, result) {
+	self.system.emit('rest', 'http://' + self.config.host + ":" + self.config.port + path, bodyjson, function (err, result) {
 		if (err !== null) {
 			self.log('error', 'HTTP POST Request failed (' + result.error.code + ')');
 			self.status(self.STATUS_ERROR, result.error.code);
