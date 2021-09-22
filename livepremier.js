@@ -520,8 +520,19 @@ instance.prototype.action = function(action) {
 	}
 
 	if(action.action == 'customcommand') {
-		path = action.options['path'];
-		bodyjson = action.options['bodyjson'];
+		for (const property in action.options) {
+			// if an option includes a variable, get it's value and replace the name for the actual value
+			if (String(action.options[property]).includes('$(')) {
+				// Replaces all variables with their selected values
+				this.parseVariables(action.options[property], (temp) => {
+					if(property == 'path') {
+						path = temp;
+					} else if(property == 'bodyjson') {
+						bodyjson = temp;
+					}
+				})
+			}
+		}
 	}
 
 	if (bodyjson === {}) {
