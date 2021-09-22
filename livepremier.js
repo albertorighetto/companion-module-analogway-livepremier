@@ -450,6 +450,23 @@ instance.prototype.actions = function(system) {
 		'multitake': {
 			label: 'Take multiple Screens and Aux-Screens',
 			options: this.choicesDest
+		},
+		'customcommand': {
+			label: 'Custom command',
+			options: [
+				{
+					type: 'textinput',
+					label: 'Address path',
+					id: 'path',
+					default: '/api/tpp/v1/'
+				},
+				{
+					type: 'textinput',
+					label: 'JSON body',
+					id: 'bodyjson',
+					default: '{}'
+				}
+			]
 		}
 	});
 };
@@ -500,6 +517,11 @@ instance.prototype.action = function(action) {
 				}
 			}
 		}
+	}
+
+	if(action.action == 'customcommand') {
+		path = action.options['path'];
+		bodyjson = action.options['bodyjson'];
 	}
 
 	if (bodyjson === {}) {
