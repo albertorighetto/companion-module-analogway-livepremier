@@ -21,6 +21,9 @@
 		"url": "git+https://github.com/bitfocus/companion-module-analogway-livepremier.git"
 	},
 	"author": "Dorian Meid <meid@backstage.org>",
+	"contributors": [
+		"Alberto Righetto"
+	],
 	"license": "MIT",
 	"bugs": {
 		"url": "https://github.com/bitfocus/companion-module-analogway-livepremier/issues"
