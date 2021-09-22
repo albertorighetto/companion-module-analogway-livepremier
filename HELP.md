@@ -1,4 +1,4 @@
-## Analog Way LivePremier Series module
+## Analog Way LivePremier and Midra 4K Series module
 
 This module allows you to control all models of Analog Way's LivePremier and Midra 4K live image processing lineup.
 At this time it uses the LivePremier's REST API, so it is basically "fire and forget". That means the module just sends commands and doesn't care about execution or feedback. With the REST API system states could be polled from the system, but the traffic would be to much to continuously pull everything and keep in sync.
